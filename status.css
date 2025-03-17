@@ -1,0 +1,29 @@
+.status-message {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.status-message.error {
+  background-color: #fce8e6;
+  color: #c5221f;
+  border-left: 4px solid #c5221f;
+}
+
+.status-message.success {
+  background-color: #e6f4ea;
+  color: #137333;
+  border-left: 4px solid #137333;
+}
+
+.status-message.info {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  border-left: 4px solid #1a73e8;
+}
+
+.hidden {
+  display: none !important;
+}

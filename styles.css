@@ -1,0 +1,342 @@
+body {
+  width: 280px;
+  height: 500px;
+  margin: 0;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  color: #3c4043;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: #1a73e8;
+}
+
+h1 {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h1::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: #1a73e8;
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 14c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM12 17c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm6 4H6v-.99c.2-.72 3.3-2.01 6-2.01s5.8 1.29 6 2v1z"/></svg>')
+    no-repeat center;
+  mask-size: contain;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.session-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary-button {
+  background-color: #1a73e8;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.primary-button:hover:not(:disabled) {
+  background-color: #1557b0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background-color: #d2e3fc;
+}
+
+.status-container {
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.status-message {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.status-message.error {
+  background-color: #fce8e6;
+  color: #c5221f;
+  border-left: 4px solid #c5221f;
+}
+
+.status-message.success {
+  background-color: #e6f4ea;
+  color: #137333;
+  border-left: 4px solid #137333;
+}
+
+.status-message.info {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  border-left: 4px solid #1a73e8;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Observation Form Styles */
+.observation-form {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+  max-height: calc(100% - 32px); /* Account for padding */
+}
+
+.observation-form-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 8px; /* Space for scrollbar */
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #5f6368;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+  padding: 8px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #dadce0;
+  background-color: #f8f9fa;
+  position: sticky;
+  bottom: 0;
+}
+
+.screenshot-container {
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  min-height: 200px;
+  height: auto;
+}
+
+.screenshot-preview {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #dadce0;
+  position: relative;
+  overflow: hidden;
+}
+
+.screenshot-preview canvas {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.annotation-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+.annotation-controls {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tool-button {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f6368;
+  transition: all 0.2s;
+}
+
+.tool-button:hover {
+  background-color: #f1f3f4;
+  color: #1a73e8;
+}
+
+.tool-button.active {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.tool-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Observations List Styles */
+.observations-list {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.observations-container {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.observation-item {
+  background-color: white;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #dadce0;
+  transition: all 0.2s;
+}
+
+.observation-item:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.observation-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #3c4043;
+  line-height: 1.4;
+}
+
+.observation-time {
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.observation-time::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #5f6368;
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>')
+    no-repeat center;
+  mask-size: contain;
+}

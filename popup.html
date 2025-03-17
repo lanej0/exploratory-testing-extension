@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exploratory Testing Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="status.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exploratory Testing</h1>
+      <div class="session-controls">
+        <button id="startSession" class="primary-button">
+          Start New Session
+        </button>
+        <button id="addObservation" class="secondary-button" disabled>
+          Add Observation
+        </button>
+        <button id="endSession" class="secondary-button" disabled>
+          End Session
+        </button>
+      </div>
+
+      <div id="observationForm" class="observation-form hidden">
+        <div class="observation-form-content">
+          <div class="form-group">
+            <label for="notes">Notes:</label>
+            <textarea
+              id="notes"
+              placeholder="Describe what you observed..."
+            ></textarea>
+          </div>
+          <div class="screenshot-container">
+            <div class="screenshot-preview">
+              <canvas id="screenshotCanvas"></canvas>
+            </div>
+            <div class="annotation-controls">
+              <button
+                class="tool-button active"
+                id="arrowTool"
+                title="Arrow Tool"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="secondary-button" id="cancelObservation">
+            Cancel
+          </button>
+          <button class="primary-button" id="saveObservation">
+            Save Observation
+          </button>
+        </div>
+      </div>
+
+      <div id="sessionStatus" class="status-container">
+        <p>No active session</p>
+      </div>
+
+      <div id="observationsList" class="observations-list hidden">
+        <h2>Current Observations</h2>
+        <div class="observations-container"></div>
+      </div>
+    </div>
+    <script type="module" src="lib/jszip.min.js"></script>
+    <script type="module" src="utils/notifications.js"></script>
+    <script type="module" src="utils/markdown.js"></script>
+    <script type="module" src="utils/annotationTool.js"></script>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
