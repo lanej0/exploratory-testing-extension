@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PDF Generator</title>
+    <link rel="stylesheet" href="styles/offscreen.css" />
+    <link rel="stylesheet" href="styles/pdf.css" />
+    <link rel="stylesheet" href="styles/html2pdf-iframe.css" />
+    <!-- Load initialization code first -->
+    <script src="utils/offscreenInit.js"></script>
+    <!-- Load libraries -->
+    <script src="lib/marked.min.js"></script>
+    <script src="lib/html2pdf.bundle.min.js"></script>
+    <!-- Load our PDF generator last -->
+    <script src="utils/pdfGenerator.js"></script>
+  </head>
+  <body>
+    <div id="status">Loading PDF Generator...</div>
+    <div id="content"></div>
+  </body>
+</html>

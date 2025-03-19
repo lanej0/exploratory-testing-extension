@@ -7,21 +7,21 @@
 }
 
 .status-message.error {
-  background-color: #fce8e6;
-  color: #c5221f;
-  border-left: 4px solid #c5221f;
+  background-color: rgba(197, 34, 31, 0.1);
+  color: #ff5c57;
+  border-left: 4px solid #ff5c57;
 }
 
 .status-message.success {
-  background-color: #e6f4ea;
-  color: #137333;
-  border-left: 4px solid #137333;
+  background-color: rgba(19, 115, 51, 0.1);
+  color: #3cba54;
+  border-left: 4px solid #3cba54;
 }
 
 .status-message.info {
-  background-color: #e8f0fe;
-  color: #1a73e8;
-  border-left: 4px solid #1a73e8;
+  background-color: rgba(26, 115, 232, 0.1);
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
 }
 
 .hidden {
